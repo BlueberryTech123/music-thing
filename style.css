@@ -1,12 +1,13 @@
 body {
-    background: #122427;
+    background: #3a7ab6;
 }
 #map {
     height: 100vh;
 }
-path {
-    stroke: #525252;
+#map svg {
+    height: 100%;
 }
-path:hover {
+g:hover {
     filter: brightness(120%);
+    cursor: pointer;
 }

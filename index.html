@@ -8,8 +8,9 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
 </head>
-<body onload="fetch('BlankMap-World-Sovereign_Nations.svg').then(async function(res) {document.getElementById('map').innerHTML = await res.text()});">
+<body onload="loadMap()">
     <div id="map"></div>
 </body>
 </html>
