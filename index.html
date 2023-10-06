@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- python -m http.server 8000 -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="fetch('BlankMap-World-Sovereign_Nations.svg').then(async function(res) {document.getElementById('map').innerHTML = await res.text()});">
+    <div id="map"></div>
+</body>
+</html>

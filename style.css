@@ -1,0 +1,12 @@
+body {
+    background: #122427;
+}
+#map {
+    height: 100vh;
+}
+path {
+    stroke: #525252;
+}
+path:hover {
+    filter: brightness(120%);
+}
