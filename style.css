@@ -1,5 +1,6 @@
 body {
-    background: #3a7ab6;
+    background: #8eceff;
+    margin: 0px;
 }
 #map {
     height: 100vh;
@@ -7,7 +8,21 @@ body {
 #map svg {
     height: 100%;
 }
-g:hover {
-    filter: brightness(120%);
+#country {
+    background: rgba(69, 69, 69, 0.5);
+    color: #fff;
+    position: fixed;
+    padding: 7px;
+    top: 0px;
+    width: 100vw;
+}
+path {
+    filter: saturate(50%);
+    -webkit-filter: saturate(50%);
+}
+path:hover {
     cursor: pointer;
+
+    filter: saturate(100%);
+    -webkit-filter: saturate(100%);
 }
