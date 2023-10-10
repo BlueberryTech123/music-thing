@@ -1,28 +1,57 @@
 body {
-    background: #8eceff;
+    background-color: #96ccff !important;
+    background-image: url("background.png");
+    background-size: 100px;
     margin: 0px;
+    overflow: hidden;
+}
+button {
+    border-radius: 15px !important;
+    border: 3px solid transparent;
+    background-color: #363636;
+    color: #fff;
+    padding: 7px 25px 7px 25px;
+    transition: 180ms;
+}
+button:hover {
+    border-color: #fff;
+}
+button:active {
+    transform: scale(70%);
+}
+.filled-div {
+    background-color: #3ca367;
+    color: #fff;
+    padding: 7px;
 }
 #map {
     height: 100vh;
 }
 #map svg {
+    filter: drop-shadow(1.5px 1.5px 0px #daedfe)
+        drop-shadow(-1.5px -1.5px 0px #daedfe)
+        drop-shadow(-1.5px 1.5px 0px #daedfe)
+        drop-shadow(1.5px -1.5px 0px #daedfe);
     height: 100%;
 }
 #country {
-    background: rgba(69, 69, 69, 0.5);
-    color: #fff;
     position: fixed;
-    padding: 7px;
     top: 0px;
     width: 100vw;
+    border-bottom: 5px solid #fff;
+}
+#player {
+    position: fixed;
+    bottom: 0px;
+    height: 100px;
+    width: 100vw;
+    border-top: 5px solid #fff;
 }
 path {
-    filter: saturate(50%);
-    -webkit-filter: saturate(50%);
+    transition: 180ms;
+    stroke: #10072b;
 }
 path:hover {
     cursor: pointer;
-
-    filter: saturate(100%);
-    -webkit-filter: saturate(100%);
+    fill: #ff7c7c !important;
 }

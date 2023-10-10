@@ -1,6 +1,9 @@
-let colors = ["#fcba03", "#ff3d3d", "#443dff", "#2fbd61", "#f2981b", "#8ea630", "#a63061"];
+let colors = ["#074f57", "#077187", "#74a57f", "#9ece9a", "#e4c5af"];
+//#BB4430
 let hoveredCountry = "";
 let tooltip;
+
+let mapPos = {x: 0, y: 0};
 
 window.onerror = (event, source, lineno, colno, error) => {
     alert(event);
