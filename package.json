@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "radio-browser-api": "^6.0.1"
+  }
+}
