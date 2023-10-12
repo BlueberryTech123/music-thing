@@ -24,15 +24,12 @@ button:active {
     color: #fff;
     padding: 7px;
 }
-#map {
-    height: 100vh;
-}
 #map svg {
     filter: drop-shadow(1.5px 1.5px 0px #daedfe)
         drop-shadow(-1.5px -1.5px 0px #daedfe)
         drop-shadow(-1.5px 1.5px 0px #daedfe)
         drop-shadow(1.5px -1.5px 0px #daedfe);
-    height: 100%;
+    width: 100%;
 }
 #country {
     position: fixed;

@@ -45,6 +45,12 @@ function loadMap() {
             element.onmouseleave = () => {tooltip.innerHTML = "Hover over a country";};
             element.classList.add("country");
 
+            element.onclick = () => {
+                $.post("/getstations", {iso: element.id, name: name}, (data) => {
+                    alert(JSON.stringify(data));
+                });
+            }
+
             // alert(`lust: ${element.classList[0]}\nname: ${element.getAttribute('name')}\nactual name: ${name}`);
             // throw new Error("killys");
             // alert(name);
