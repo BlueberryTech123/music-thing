@@ -40,7 +40,7 @@ button:active {
 #player {
     position: fixed;
     bottom: 0px;
-    height: 100px;
+    height: 120px;
     width: 100vw;
     border-top: 5px solid #fff;
 }

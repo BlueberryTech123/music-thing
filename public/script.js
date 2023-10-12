@@ -37,6 +37,8 @@ function loadMap() {
             element.classList.forEach((kys) => {
                 className += `${kys} `;
             });
+            if (className.length > 0) className = className.substring(0, className.length - 1);
+
             let name = element.getAttribute("name") || className;
             if (name == className) {
                 element.setAttribute("name", name);
@@ -47,7 +49,16 @@ function loadMap() {
 
             element.onclick = () => {
                 $.post("/getstations", {iso: element.id, name: name}, (data) => {
-                    alert(JSON.stringify(data));
+                    console.log(JSON.stringify(data));
+                    document.getElementById("station").innerText = data.name;
+                    document.getElementById("radio").setAttribute("src", data.urlResolved + ";");
+
+                    document.getElementById("favicon").setAttribute("src", data.favicon);
+                    document.getElementById("info").innerHTML = `
+                        <b>${data.country}</b> (${data.countryCode})<br>
+                        Name: <a href="${data.homepage}">${data.name}</a><br>
+                        Languages: ${data.lanuage}<br>
+                    `;
                 });
             }
 

@@ -18,6 +18,7 @@ function publicFile(filename) {
     return `${__dirname}/public/${filename}`;
 }
 async function byCountryCode(countryCode) {
+    console.log(countryCode);
     const stations = await api.searchStations({
         countryCode: countryCode,
         limit: 25
@@ -25,9 +26,9 @@ async function byCountryCode(countryCode) {
     return stations;
 }
 async function byCountryName(country) {
-    let countryCode;
+    console.log(country);
     const stations = await api.searchStations({
-        countryCode: countryCode,
+        country: country,
         limit: 25
     });
     return stations;
@@ -38,15 +39,19 @@ app.get("/", async function (req, res) {
 });
 
 app.post("/getstations", async function (req, res) {
+    console.log(`Getting stations...\nname: ${req.body.name}\niso: ${req.body.iso}`);
     let stations;
-    if (req.body.iso == null) {
+    if (!req.body.iso) {
         stations = await byCountryName(req.body.name);
     }
     else {
         stations = await byCountryCode(req.body.iso);
     }
-
-    res.json(stations[Math.random(0, stations.length)]);
+    
+    const selected = stations[0];
+    console.log("Done!");
+    console.log(selected);
+    res.json(selected);
 });
 
 app.use(express.static("public"));
