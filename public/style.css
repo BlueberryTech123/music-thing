@@ -44,6 +44,10 @@ button:active {
     width: 100vw;
     border-top: 5px solid #fff;
 }
+#favicon {
+    height: 85px;
+    border: 5px solid #fff;
+}
 path {
     transition: 180ms;
     stroke: #10072b;

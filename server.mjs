@@ -39,19 +39,33 @@ app.get("/", async function (req, res) {
 });
 
 app.post("/getstations", async function (req, res) {
-    console.log(`Getting stations...\nname: ${req.body.name}\niso: ${req.body.iso}`);
-    let stations;
-    if (!req.body.iso) {
-        stations = await byCountryName(req.body.name);
+    try {
+        console.log(`Getting stations...\nname: ${req.body.name}\niso: ${req.body.iso}`);
+        let stations;
+        if (!req.body.iso) {
+            stations = await byCountryName(req.body.name);
+        }
+        else {
+            stations = await byCountryCode(req.body.iso);
+        }
+        
+        const selected = stations[0];
+        console.log("Done!");
+        console.log(selected);
+
+        if (!selected) throw new Error("kil yourselff");
+
+        res.json(selected);
     }
-    else {
-        stations = await byCountryCode(req.body.iso);
+    catch (error) {
+        res.json({
+            country: "Unavailable",
+            countryCode: "N/A",
+            favicon: "",
+            urlResolved: "",
+            name: "Unavailable"
+        })
     }
-    
-    const selected = stations[0];
-    console.log("Done!");
-    console.log(selected);
-    res.json(selected);
 });
 
 app.use(express.static("public"));

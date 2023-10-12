@@ -57,7 +57,6 @@ function loadMap() {
                     document.getElementById("info").innerHTML = `
                         <b>${data.country}</b> (${data.countryCode})<br>
                         Name: <a href="${data.homepage}">${data.name}</a><br>
-                        Languages: ${data.lanuage}<br>
                     `;
                 });
             }
