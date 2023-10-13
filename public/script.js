@@ -51,7 +51,22 @@ function loadMap() {
                 $.post("/getstations", {iso: element.id, name: name}, (data) => {
                     console.log(JSON.stringify(data));
                     document.getElementById("station").innerText = data.name;
-                    document.getElementById("radio").setAttribute("src", data.urlResolved + ";");
+                    if (data.hls) {
+                        if (Hls.isSupported()) {
+                            let hls = new Hls();
+                            hls.loadSource(data.urlResolved);
+                            // hls.attachMedia(document.querySelector("#radio"));
+                            hls.attachMedia(document.getElementById("radio"));
+                            alert(document.getElementById("radio").getAttribute("src"));
+                        }
+                        else {
+                            document.getElementById("station").innerText = "Your platform does not support HLS streaming";
+                        }
+                    }
+                    else {
+                        document.getElementById("radio").setAttribute("src", data.urlResolved);
+                        // alert(document.getElementById("radio").getAttribute("src"));
+                    }
 
                     document.getElementById("favicon").setAttribute("src", data.favicon);
                     document.getElementById("info").innerHTML = `

@@ -19,6 +19,14 @@ button:hover {
 button:active {
     transform: scale(70%);
 }
+a {
+    color: #5ed1c2 !important;
+    transition: 180ms;
+}
+a:hover {
+    color: #3ca367;
+    background: #fff;
+}
 .filled-div {
     background-color: #3ca367;
     color: #fff;
