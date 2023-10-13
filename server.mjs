@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 function publicFile(filename) {
-    return `${__dirname}/public/${filename}`;
+    return `${__dirname.replace("/functions", "")}/public/${filename}`;
 }
 async function byCountryCode(countryCode) {
     console.log(countryCode);
