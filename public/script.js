@@ -57,7 +57,7 @@ function loadMap() {
                             hls.loadSource(data.urlResolved);
                             // hls.attachMedia(document.querySelector("#radio"));
                             hls.attachMedia(document.getElementById("radio"));
-                            alert(document.getElementById("radio").getAttribute("src"));
+                            // alert(document.getElementById("radio").getAttribute("src"));
                         }
                         else {
                             document.getElementById("station").innerText = "Your platform does not support HLS streaming";
