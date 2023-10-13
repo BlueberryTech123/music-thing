@@ -5,6 +5,7 @@ import fetch from 'node-fetch';
 import express from "express";
 import bodyParser from "body-parser";
 
+global.fetch = fetch;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
