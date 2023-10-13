@@ -53,11 +53,12 @@ app.post("/getstations", async function (req, res) {
         console.log("Done!");
         console.log(selected);
 
-        if (!selected) throw new Error("kil yourselff");
+        if (!selected) throw new Error("selff");
 
         res.json(selected);
     }
     catch (error) {
+        console.log(error);
         res.json({
             country: "Unavailable",
             countryCode: "N/A",
