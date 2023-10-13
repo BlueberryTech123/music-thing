@@ -29,6 +29,7 @@ a:hover {
 }
 .filled-div {
     background-color: #3ca367;
+    background: linear-gradient(90deg, #3ca367, #3c99a3);
     color: #fff;
     padding: 10px 40px 10px 40px;
 }
