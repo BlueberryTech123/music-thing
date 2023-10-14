@@ -69,10 +69,21 @@ function loadMap() {
                     }
 
                     document.getElementById("favicon").setAttribute("src", data.favicon);
-                    document.getElementById("info").innerHTML = `
+
+                    let info = document.querySelector("#info");
+                    const tags = data.tags;
+                    info.innerHTML = `
                         <b>${data.country}</b> (${data.countryCode})<br>
                         Name: <a href="${data.homepage}">${data.name}</a><br>
+                        Tags: 
                     `;
+
+                    if (tags) {
+                        for (let i = 0; i < Math.min(tags.length, 4); i++) {
+                            info.innerHTML += `<span class="tag" style="background: ${colorFromString(tags[i])};">${tags[i]}</span>&nbsp;&nbsp;`;
+                        }
+                        if (tags.length > 4) info.innerHTML += "...";
+                    }
                 });
             }
 

@@ -27,6 +27,12 @@ a:hover {
     color: #3ca367;
     background: #fff;
 }
+.tag {
+    background: #000;
+    color: #fff;
+    padding: 3px 7px 3px 7px;
+    border-radius: 5px;
+}
 .filled-div {
     background-color: #3ca367;
     background: linear-gradient(90deg, #3ca367, #3c99a3);
