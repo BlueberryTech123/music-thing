@@ -25,7 +25,11 @@ function colorFromIndex(index) {
 function setColor(element, color) {
     element.style.fill = color;
 }
-
+function toggleSound() {
+    let player = document.querySelector("#radio");
+    player.muted = !player.muted;
+    document.getElementById("mute").classList.toggle("muted");
+}
 function loadMap() {
     fetch("world.svg").then(async function(res) {
         document.getElementById("map").innerHTML = await res.text();

@@ -20,7 +20,7 @@
     <div id="map"></div>
     <div id="top" class="filled-div">
         <div class="row">
-            <div class="col-6">&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" style="height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>JamBox</b> (beta)</div>
+            <div class="col-6">&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" style="height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fancy-bold">JamBox</span> (beta)</div>
             <div class="col-6" style="text-align: right;">A project by <a href="https://jessewithoutani.github.io">Jesse Li</a></div>
         </div>
     </div>
@@ -35,8 +35,10 @@
             </div>
             <div class="col-3" id="info">Find a station to continue</div>
             <div class="col-6">
-                <button><i class="bi bi-play-fill"></i> / <i class="bi bi-pause-fill"></i></button>
-                <button><i class="bi bi-music-note"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-broadcast flashing" style="color: #f00;"></i> <b>Live</b>
+                <span id="volume">100</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="range" min="0" max="100" value="100" oninput="document.getElementById('volume').innerHTML = this.value; document.getElementById('radio').volume = this.value / this.max;">
+                <button id="mute" onclick="toggleSound()" title="mute/unmute"><i class="bi bi-volume-up-fill"></i></button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="tag" style="background: #f00;"><i class="bi bi-broadcast flashing"></i> <b>Live</b></span>
                 <br>
                 <audio id="radio" autoplay></audio><br>
                 <marquee id="station" style="width: 35%;">Find a station to continue</marquee>

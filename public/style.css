@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;1,400;1,500&display=swap');
+
 body {
     background-color: #96ccff !important;
     background-image: url("background.png");
     background-size: 100px;
     margin: 0px;
     overflow: hidden;
+    font-family: "Exo 2" !important;
 }
 button {
     border-radius: 15px !important;
@@ -12,6 +16,7 @@ button {
     color: #fff;
     padding: 7px 25px 7px 25px;
     transition: 180ms;
+    outline: none;
 }
 button:hover {
     border-color: #fff;
@@ -30,11 +35,60 @@ a:hover {
     color: #3ca367;
     background: #fff;
 }
+input[type=range] {
+    background: #444;
+    margin-right: 25px;
+    height: 7px;
+    border-radius: 100px;
+    appearance: none;
+    outline: none;
+}
+input[type=range]::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background: #fff;
+    transition: 180ms;
+}
+input[type=range]::-moz-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background: #fff;
+    transition: 180ms;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    cursor: grab;
+    transform: scale(130%);
+}
+input[type=range]::-moz-slider-thumb:hover {
+    cursor: grab;
+    transform: scale(130%);
+}
+input[type=range]::-webkit-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(90%);
+}
+input[type=range]::-moz-slider-thumb:active {
+    cursor: grabbing;
+    transform: scale(90%);
+}
+
 @keyframes flash {
     to { visibility: hidden; }
 }
 .flashing {
     animation: flash 1s steps(2, start) infinite;
+}
+.fancy-bold {
+    font-family: "Bitter" !important;
+    font-weight: 700;
+}
+.muted {
+    color: #f00;
 }
 .tag {
     background: #000;
