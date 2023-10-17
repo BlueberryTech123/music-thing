@@ -30,6 +30,14 @@ function toggleSound() {
     player.muted = !player.muted;
     document.getElementById("mute").classList.toggle("muted");
 }
+function openPopup(title, content) {
+    document.getElementById("popup-title").innerHTML = title;
+    document.getElementById("popup-content").innerHTML = content;
+    document.getElementById("popup-container").classList.remove("invisible");
+}
+function closePopup() {
+    document.getElementById("popup-container").classList.add("invisible");
+}
 function loadMap() {
     fetch("world.svg").then(async function(res) {
         document.getElementById("map").innerHTML = await res.text();
@@ -62,9 +70,11 @@ function loadMap() {
                             // hls.attachMedia(document.querySelector("#radio"));
                             hls.attachMedia(document.getElementById("radio"));
                             // alert(document.getElementById("radio").getAttribute("src"));
+                            // openPopup("hehehehehe", document.getElementById("radio").getAttribute("src"));
                         }
                         else {
                             document.getElementById("station").innerText = "Your platform does not support HLS streaming";
+                            openPopup("Error", "Your platform does not support HLS streaming");
                         }
                     }
                     else {

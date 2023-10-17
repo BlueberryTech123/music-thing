@@ -83,9 +83,22 @@ input[type=range]::-moz-slider-thumb:active {
 .flashing {
     animation: flash 1s steps(2, start) infinite;
 }
+.invisible {
+    display: none;
+}
 .fancy-bold {
     font-family: "Bitter" !important;
     font-weight: 700;
+}
+.popup {
+    border-radius: 15px;
+    border: 5px solid #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    padding: 50px 130px 50px 130px !important;
 }
 .muted {
     color: #f00;
@@ -96,11 +109,20 @@ input[type=range]::-moz-slider-thumb:active {
     padding: 3px 7px 3px 7px;
     border-radius: 5px;
 }
-.filled-div {
+.filled-div, .popup {
     background-color: #3ca367;
     background: linear-gradient(90deg, #3ca367, #3c99a3);
     color: #fff;
     padding: 10px 40px 10px 40px;
+}
+#popup-container {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
 }
 #map svg {
     filter: drop-shadow(1.5px 1.5px 0px #daedfe)
@@ -122,10 +144,11 @@ input[type=range]::-moz-slider-thumb:active {
     width: 100vw;
     border-top: 5px solid #fff;
 }
-#favicon {
+.icon {
     height: 85px;
     border: 5px solid #fff;
     background-color: #4ac97f;
+    border-radius: 7px;
 }
 path {
     transition: 180ms;

@@ -21,7 +21,7 @@
     <div id="map"></div>
     <div id="top" class="filled-div">
         <div class="row">
-            <div class="col-6">&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" style="height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fancy-bold">JamBox</span> (beta)</div>
+            <div class="col-6">&nbsp;&nbsp;&nbsp;&nbsp;<img src="logo.png" style="height: 20px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>JamBox</b> <span class="tag" style="background: #3b83a4;">BETA</span></div>
             <div class="col-6" style="text-align: right;">A project by <a href="https://jessewithoutani.github.io">Jesse Li</a></div>
         </div>
     </div>
@@ -32,7 +32,7 @@
         <hr>
         <div class="row">
             <div class="col-3">
-                <center><img src="placeholder.png" id="favicon" onerror="this.src='placeholder.png';"></center>
+                <center><img src="placeholder.png"  class="icon" id="favicon" onerror="this.src='placeholder.png';"></center>
             </div>
             <div class="col-3" id="info">Find a station to continue</div>
             <div class="col-6">
@@ -43,6 +43,22 @@
                 <br>
                 <audio id="radio" autoplay></audio><br>
                 <marquee id="station" style="width: 35%;">Find a station to continue</marquee>
+            </div>
+        </div>
+    </div>
+
+    <div id="popup-container">
+        <div class="popup">
+            <div class="row">
+                <div class="col">
+                    <img src="placeholder.png" class="icon" style="margin-top: 50%; transform: translateY(-50%);">
+                </div>
+                <div class="col-8">
+                    <h2 id="popup-title">Notice</h2>
+                    <p id="popup-content"><b>JamBox</b> is currently in <span class="tag" style="background: #3b83a4;">BETA</span>, expect bugs and incomplete features.</p>
+                    <button onclick="closePopup()">Got it</button>
+                    <button onclick="closePopup()">Kill yourself</button>
+                </div>
             </div>
         </div>
     </div>
