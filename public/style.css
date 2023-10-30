@@ -22,8 +22,9 @@ button:hover {
     border-color: #fff;
 }
 button:active {
-    transform: scale(70%);
+    transform: scale(80%);
 }
+
 b {
     font-weight: bold;
 }
@@ -124,6 +125,12 @@ input[type=range]::-moz-slider-thumb:active {
     width: 100vw;
     height: 100vh;
 }
+#map {
+    cursor: grab;
+}
+#map:active {
+    cursor: grabbing;
+}
 #map svg {
     filter: drop-shadow(1.5px 1.5px 0px #daedfe)
         drop-shadow(-1.5px -1.5px 0px #daedfe)
@@ -143,6 +150,10 @@ input[type=range]::-moz-slider-thumb:active {
     height: 170px;
     width: 100vw;
     border-top: 5px solid #fff;
+}
+#volume {
+    display: inline-block;
+    width: 30px;
 }
 .icon {
     height: 85px;

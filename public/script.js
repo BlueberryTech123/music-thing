@@ -3,8 +3,13 @@ let colors = ["#074f57", "#077187", "#74a57f", "#9ece9a", "#e4c5af"];
 let hoveredCountry = "";
 let tooltip;
 
-let mapPos = {x: 0, y: 0};
+let size = 100;
 
+onwheel = (event) => {
+    // alert("kil yourself");
+    size = Math.min(Math.max(size + event.deltaY * -0.075, 80), 300);
+    document.getElementById("map").style.transform = `scale(${size}%)`
+}
 window.onerror = (event, source, lineno, colno, error) => {
     alert(event);
 }
@@ -55,7 +60,7 @@ function loadMap() {
             if (name == className) {
                 element.setAttribute("name", name);
             }
-            element.onmouseover = () => {tooltip.innerHTML = name;};
+            element.onmouseover = () => {tooltip.innerHTML = `<b>${name}</b>`;};
             element.onmouseleave = () => {tooltip.innerHTML = "Hover over a country";};
             element.classList.add("country");
 
@@ -86,11 +91,16 @@ function loadMap() {
 
                     let info = document.querySelector("#info");
                     const tags = data.tags;
+
                     info.innerHTML = `
-                        <b>${data.country}</b> (${data.countryCode})<br>
-                        Name: <a href="${data.homepage}">${data.name}</a><br>
+                        <b>${name}</b> (${data.countryCode})<br>
+                        Name: <a href="${(data.homepage) ? data.homepage : '#'}">${data.name}</a><br>
                         Tags: 
                     `;
+
+                    if (data.countryCode == "N/A") {
+                        openPopup("Error", `Radio data from <b>${name}</b> is unavailable.<br> Please try again later.`)
+                    }
 
                     if (tags) {
                         for (let i = 0; i < Math.min(tags.length, 4); i++) {
@@ -109,6 +119,7 @@ function loadMap() {
 
             setColor(element, color);
         });
+        $("#map").draggable();
     }).catch((event) => {
         alert(event);
     });
