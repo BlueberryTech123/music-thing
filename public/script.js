@@ -4,6 +4,14 @@ let hoveredCountry = "";
 let tooltip;
 
 let size = 100;
+let position = {x: 0, y: 0};
+let dragDelta = {x: 0, y: 0};
+let mousePosition = {x: 0, y: 0};
+let mouseAnchor = {x: 0, y: 0};
+let dragged = false;
+
+let map;
+let mapSvg;
 
 onwheel = (event) => {
     // alert("kil yourself");
@@ -35,6 +43,30 @@ function toggleSound() {
     player.muted = !player.muted;
     document.getElementById("mute").classList.toggle("muted");
 }
+
+function mouseDownMap() {
+    dragged = true;
+    mouseAnchor = {...mousePosition};
+}
+function mouseUpMap() {
+    dragged = false;
+    position.x += dragDelta.x;
+    position.y += dragDelta.y;
+    dragDelta = {x: 0, y: 0};
+}
+onmousemove = (event) => {
+    mousePosition.x = event.clientX;
+    mousePosition.y = event.clientY;
+
+    if (dragged) {
+        dragDelta.x = mousePosition.x - mouseAnchor.x;
+        dragDelta.y = mousePosition.y - mouseAnchor.y;
+        
+        mapSvg.style.marginLeft = `${position.x + dragDelta.x}px`;
+        mapSvg.style.marginTop = `${position.y + dragDelta.y}px`;
+    }
+}
+
 function openPopup(title, content) {
     document.getElementById("popup-title").innerHTML = title;
     document.getElementById("popup-content").innerHTML = content;
@@ -44,6 +76,10 @@ function closePopup() {
     document.getElementById("popup-container").classList.add("invisible");
 }
 function loadMap() {
+    map = document.querySelector("#map");
+    map.addEventListener("mousedown", mouseDownMap);
+    map.addEventListener("mouseup", mouseUpMap);
+
     fetch("world.svg").then(async function(res) {
         document.getElementById("map").innerHTML = await res.text();
 
@@ -119,7 +155,8 @@ function loadMap() {
 
             setColor(element, color);
         });
-        $("#map").draggable();
+        // $("#map").draggable();
+        mapSvg = document.querySelector("#map svg");
     }).catch((event) => {
         alert(event);
     });

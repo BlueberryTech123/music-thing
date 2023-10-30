@@ -126,6 +126,8 @@ input[type=range]::-moz-slider-thumb:active {
     height: 100vh;
 }
 #map {
+    /* background: #f00; */
+    height: 100vh;
     cursor: grab;
 }
 #map:active {
