@@ -16,7 +16,7 @@ let mapSvg;
 onwheel = (event) => {
     // alert("kil yourself");
     size = Math.min(Math.max(size + event.deltaY * -0.075, 80), 300);
-    document.getElementById("map").style.transform = `scale(${size}%)`
+    mapSvg.style.transform = `scale(${size}%)`
 }
 window.onerror = (event, source, lineno, colno, error) => {
     alert(event);
@@ -59,8 +59,8 @@ onmousemove = (event) => {
     mousePosition.y = event.clientY;
 
     if (dragged) {
-        dragDelta.x = mousePosition.x - mouseAnchor.x;
-        dragDelta.y = mousePosition.y - mouseAnchor.y;
+        dragDelta.x = (mousePosition.x - mouseAnchor.x) * 100 / size;
+        dragDelta.y = (mousePosition.y - mouseAnchor.y) * 100 / size;
         
         mapSvg.style.marginLeft = `${position.x + dragDelta.x}px`;
         mapSvg.style.marginTop = `${position.y + dragDelta.y}px`;
