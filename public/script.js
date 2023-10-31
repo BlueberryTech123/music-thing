@@ -79,6 +79,7 @@ function loadMap() {
     map = document.querySelector("#map");
     map.addEventListener("mousedown", mouseDownMap);
     map.addEventListener("mouseup", mouseUpMap);
+    map.addEventListener("mouseleave", mouseUpMap);
 
     fetch("world.svg").then(async function(res) {
         document.getElementById("map").innerHTML = await res.text();
